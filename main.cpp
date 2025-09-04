@@ -46,7 +46,7 @@ int main(){
     // create characters
     Character hero, enemy;
     initCharacter(hero, "Hero", "(._.)", 100, 10);
-    initCharacter(enemy, "Enemy", "(.o.)", 50, 5);
+    initCharacter(enemy, "Enemy", "(o-o)", 50, 5);
     
     //create references to characters
     Character &heroRef = hero;
