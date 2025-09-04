@@ -1,5 +1,14 @@
 {
     "files.associations": {
         "iostream": "cpp"
-    }
+    },
+    "c-cpp-default.compiler": "g++",
+    "c-cpp-compile-paths": [
+        "${workspaceFolder}/**"
+    ],
+    "c-cpp-default.includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/assets/**",
+        "${workspaceFolder}/thirdParty/**"
+    ],
 }
