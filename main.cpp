@@ -35,7 +35,7 @@ void initCharacter(Character &character, string name, string sprite, int health,
 
 // Function to update and render all characters in the scene
 void update(Character &character1, Character &character2){
-    system("clear"); // Use "cls" for windows and for Linux/Mac use "clear"
+    system("clear"); // Use "cls" for windows and "clear" for Linux/MacOS
     cout << "Hero vs Enemy\n";
     character1.renderCharacter();
     cout << "\n";
