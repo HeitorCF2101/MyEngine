@@ -34,8 +34,8 @@ void initCharacter(Character &character, string name, string sprite, int health,
 }
 
 // Function to update and render all characters in the scene
-void update(Character character1, Character character2){
-    system("cls"); // Using "cls" for windows, for Linux use "clear"
+void update(Character &character1, Character &character2){
+    system("clear"); // Use "cls" for windows and for Linux/Mac use "clear"
     cout << "Hero vs Enemy\n";
     character1.renderCharacter();
     cout << "\n";
@@ -47,8 +47,10 @@ int main(){
     Character hero, enemy;
     initCharacter(hero, "Hero", "(._.)", 100, 10);
     initCharacter(enemy, "Enemy", "(.o.)", 50, 5);
-
-    Character characters[] = {hero, enemy};
+    
+    //create references to characters
+    Character &heroRef = hero;
+    Character &enemyRef = enemy;
 
     // Initial render
     cout << "Hero vs Enemy\n";
@@ -65,11 +67,12 @@ int main(){
         // another pause before updating the scene
         this_thread::sleep_for(chrono::seconds(2));
         //function to update the scene in the loop
-        update(hero, enemy);
+        update(heroRef, enemyRef);
     }
 
-    update(hero, enemy);
+    update(heroRef, enemyRef);
 
+    // Announce the result of the battle
     if(enemy.health <= 0){
         cout << enemy.name << " has been defeated!\n";
     }
