@@ -47,16 +47,16 @@ int main(){
     Character hero, enemy;
     initCharacter(hero, "Hero", "(._.)", 100, 10);
     initCharacter(enemy, "Enemy", "(.o.)", 50, 5);
+
+    //create player input variable
+    string playerInput;
     
     //create references to characters
     Character &heroRef = hero;
     Character &enemyRef = enemy;
 
     // Initial render
-    cout << "Hero vs Enemy\n";
-    hero.renderCharacter();
-    cout << "\n";
-    enemy.renderCharacter();
+    update(heroRef, enemyRef);
 
     // Combat loop
     while(enemy.health > 0 && hero.health > 0){
