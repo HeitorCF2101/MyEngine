@@ -43,6 +43,9 @@ void update(Character &character1, Character &character2){
 }
 
 int main(){
+    // loop variable
+    bool running = true;
+
     // create characters
     Character hero, enemy;
     initCharacter(hero, "Hero", "(._.)", 100, 10);
@@ -58,16 +61,23 @@ int main(){
     // Initial render
     update(heroRef, enemyRef);
 
-    // Combat loop
-    while(enemy.health > 0 && hero.health > 0){
-        // Pause for 2 seconds to simulate time between actions
-        this_thread::sleep_for(chrono::seconds(2));
-        hero.attack(enemy);
-        enemy.attack(hero);
-        // another pause before updating the scene
-        this_thread::sleep_for(chrono::seconds(2));
+    // main game loop
+    while(running == true){
+        cout << "Enter 'a' to attack or 'q' to quit: ";
+        cin >> playerInput;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+        if(playerInput == "a"){
+            hero.attack(enemy);
+            if(enemy.health > 0){
+                enemy.attack(hero);
+            }
         //function to update the scene in the loop
         update(heroRef, enemyRef);
+    }
+    if(playerInput == "q" || hero.health <= 0 || enemy.health <= 0){
+            running = false;
+            break;
+        }
     }
 
     update(heroRef, enemyRef);
