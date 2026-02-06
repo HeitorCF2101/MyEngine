@@ -108,7 +108,7 @@ void update(Character &character1, Character &character2){
     character2.renderCharacter();
 }
 
-/*int main(){
+int main(){
     // loop variable
     bool running = true;
 
@@ -190,4 +190,4 @@ void update(Character &character1, Character &character2){
     }
     
     return 0;
-}*/
+}
