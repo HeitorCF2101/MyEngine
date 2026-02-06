@@ -6,6 +6,7 @@
 using namespace std;
 
 // Character structure to hold character properties and methods
+// Marked as a struct for simplicity and study purposes
 /*struct Character{
     string name;
     string sprite;
@@ -85,6 +86,19 @@ class Attack{
 
 };
 
+class Map{
+    public:
+        string grid[10][10] = { " . " };
+        void renderMap(){
+            for(int i = 0; i < 10; i++){
+                for(int j = 0; j < 10; j++){
+                    cout << grid[i][j];
+                }
+                cout << "\n";
+            }
+        }
+};
+
 // Function to update and render all characters in the scene
 void update(Character &character1, Character &character2){
     system("clear"); // Use "cls" for windows and "clear" for Linux/MacOS
@@ -94,7 +108,7 @@ void update(Character &character1, Character &character2){
     character2.renderCharacter();
 }
 
-int main(){
+/*int main(){
     // loop variable
     bool running = true;
 
@@ -176,4 +190,4 @@ int main(){
     }
     
     return 0;
-}
+}*/
